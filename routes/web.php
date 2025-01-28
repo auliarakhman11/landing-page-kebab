@@ -30,6 +30,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/outlet',[OutliteController::class,'index'])->name('outlet');
+Route::get('/about',[AboutController::class,'index'])->name('about');
 
 // Route::get('/product',[LandingController::class,'index'])->name('product');
 

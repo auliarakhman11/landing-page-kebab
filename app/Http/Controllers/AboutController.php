@@ -13,26 +13,25 @@ class AboutController extends Controller
     public function index()
     {
         SEOMeta::setTitle('About');
-        SEOMeta::setDescription('The Best Snack In The Night');
+        SEOMeta::setDescription('Suganya Ngebab!');
         SEOMeta::setCanonical(route('about'));
-        SEOMeta::addKeyword(['Kebab', 'Kebab Yasmin', 'The Best Snack In The Night', 'Jajanan', 'Makanan', 'Makana dan Minuman', 'Banjarmasin', 'Kalsel', 'Kalimantan Selatan', 'Kekinian', 'Maknan Kekinian', 'Jajanan Malam', 'Makanan Malam']);
+        SEOMeta::addKeyword(['Kebab', 'Kebab Yasmin', 'Suganya Ngebab!', 'Jajanan', 'Makanan', 'Makana dan Minuman', 'Banjarmasin', 'Kalsel', 'Kalimantan Selatan', 'Kekinian', 'Maknan Kekinian', 'Jajanan Malam', 'Makanan Malam']);
 
-        OpenGraph::setDescription('The Best Snack In The Night');
+        OpenGraph::setDescription('Suganya Ngebab!');
         OpenGraph::setTitle('About');
         OpenGraph::setUrl(route('about'));
-        OpenGraph::addImage(asset('auth').'/images/kebabyasmin-removebg.png', ['height' => 300, 'width' => 300]);
+        OpenGraph::addImage(asset('img').'/kebab-yasmin.png', ['height' => 300, 'width' => 300]);
 
         TwitterCard::setTitle('About');
-        TwitterCard::setDescription('The Best Snack In The Night');
+        TwitterCard::setDescription('Suganya Ngebab!');
         TwitterCard::setUrl(route('about'));
 
         JsonLd::setTitle('About');
-        JsonLd::setDescription('The Best Snack In The Night');
-        JsonLd::addImage(asset('auth').'/images/kebabyasmin-removebg.png');
+        JsonLd::setDescription('Suganya Ngebab!');
+        JsonLd::addImage(asset('img').'/kebab-yasmin.png');
 
         $data = [
-            // 'title' => 'Kebab Yasmin | About'
-            
+            'title' => 'Kebab Yasmin | About'
         ];
         return view('page.about',$data);
     }
