@@ -206,8 +206,9 @@
             <div class="col-12">
                 <!-- Product Catagories Slide -->
                 <div class="product-catagories owl-carousel catagory-slides">
+                    <a class="shadow-sm bg-warning boxselect" href="javascript:void(0)" kategori_id="all">All</a>
                     @foreach ($kategori as $k)
-                    <a class="shadow-sm bg-warning" href="#">{{ $k->kategori }}</a>
+                    <a class="shadow-sm bg-warning boxselect" href="javascript:void(0)" kategori_id="{{ $k->id }}">{{ $k->kategori }}</a>
                     @endforeach                    
                 </div>
             </div>
@@ -223,17 +224,38 @@
               </div>
             </div> --}}
           </div>
+
+
+        <div class="search-form pt-3 rtl-flex-d-row-r">
+        <form action="#" method="">
+            <input id="search_field" class="form-control" type="text" placeholder="Search product">
+            
+            {{-- <button type="submit"><i class="ti ti-search"></i></button> --}}
+        </form>
+        <!-- Alternative Search Options -->
+        {{-- <div class="alternative-search-options">
+            <div class="dropdown"><a class="btn btn-primary dropdown-toggle" id="altSearchOption" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="ti ti-adjustments-horizontal"></i></a>
+            <!-- Dropdown Menu -->
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="altSearchOption">
+                <li><a class="dropdown-item" href="#"><i class="ti ti-microphone"> </i>Voice</a></li>
+                <li><a class="dropdown-item" href="#"><i class="ti ti-layout-collage"> </i>Image</a></li>
+            </ul>
+            </div>
+        </div> --}}
+        </div>
+
+
           <div class="mb-3"></div>
-        <div class="row g-2">
+        <div class="row g-2" id="demonames">
         
             @foreach ($produk as $p)
-            <div class="col-4 col-md-4">
+            <div class="col-4 col-md-4 box all {{ $p->kategori_id }}">
                 <div class="card product-card">
                   <div class="card-body">
                     {{-- <!-- Badge--><span class="badge rounded-pill badge-success">New</span>
                     <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="ti ti-heart"></i></a> --}}
                     <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" loading="lazy" src="https://admin.kebabyasmin.id/{{ $p->foto }}" alt=""></a>
-                    <!-- Product Title --><a class="product-title" href="single-product.html" style="font-size: 12px;">{{ $p->nm_produk }}</a>
+                    <!-- Product Title --><a class="product-title demoname" href="single-product.html" style="font-size: 12px;">{{ $p->nm_produk }}</a>
                     <!-- Product Price -->
                     <p class="sale-price" style="font-size: 12px;">Rp.{{ number_format($p->harga,0) }}</span></p>
                     {{-- <p class="sale-price">$74<span>$99</span></p> --}}
@@ -621,9 +643,42 @@
         });
 
         $(document).ready(function () {
-            $('.carousel').carousel({
-                interval: 4000
-                })
+            
+            $(document).on('click', '.boxselect', function(event) {
+                $this = $(this);
+                $('.box').hide();
+                $('.' + $this.attr('kategori_id')).show();
+                // console.log("showing " + $this.attr('kategori_id') + " boxes");
+            });
+
+            var btsearch = {
+                init: function(search_field, searchable_elements, searchable_text_class) {
+                $(search_field).keyup(function(e) {
+                    e.preventDefault();
+                    var query = $(this).val().toLowerCase();
+                    if (query) {
+                    // loop through all elements to find match
+                    $.each($(searchable_elements), function() {
+                        var title = $(this).find(searchable_text_class).text().toLowerCase();
+                        if (title.indexOf(query) == -1) {
+                        $(this).hide();
+                        } else {
+                        $(this).show();
+                        }
+                    });
+                    } else {
+                    // empty query so show everything
+                    $(searchable_elements).show();
+                    }
+                });
+                }
+            }
+
+            // INIT
+            $(function() {
+
+                btsearch.init('#search_field', '#demonames div', '.demoname');
+            });
 
 
         });

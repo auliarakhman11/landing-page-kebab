@@ -61,6 +61,7 @@
     <!-- Footer Nav-->
     @include('template._footer')
     <!-- All JavaScript Files-->
+    {{-- <script src="{{ asset('auth') }}/js/jquery.min.js"></script> --}}
     <script src="{{asset('suha')}}/js/bootstrap.bundle.min.js"></script>
     <script src="{{asset('suha')}}/js/jquery.min.js"></script>
     <script src="{{asset('suha')}}/js/waypoints.min.js"></script>
@@ -75,5 +76,7 @@
     <script src="{{asset('suha')}}/js/no-internet.js"></script>
     <script src="{{asset('suha')}}/js/active.js"></script>
     {{-- <script src="{{asset('suha')}}/js/pwa.js"></script> --}}
+
+    @stack('scripts')
   </body>
 </html>
