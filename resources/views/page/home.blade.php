@@ -225,7 +225,27 @@
           </div>
           <div class="mb-3"></div>
         <div class="row g-2">
-          <!-- Product Card -->
+        
+            @foreach ($produk as $p)
+            <div class="col-4 col-md-4">
+                <div class="card product-card">
+                  <div class="card-body">
+                    {{-- <!-- Badge--><span class="badge rounded-pill badge-success">New</span>
+                    <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="ti ti-heart"></i></a> --}}
+                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" loading="lazy" src="https://admin.kebabyasmin.id/{{ $p->foto }}" alt=""></a>
+                    <!-- Product Title --><a class="product-title" href="single-product.html" style="font-size: 12px;">{{ $p->nm_produk }}</a>
+                    <!-- Product Price -->
+                    <p class="sale-price" style="font-size: 12px;">Rp.{{ number_format($p->harga,0) }}</span></p>
+                    {{-- <p class="sale-price">$74<span>$99</span></p> --}}
+                    <!-- Rating -->
+                    {{-- <div class="product-rating"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div> --}}
+                    {{-- <!-- Add to Cart --><a class="btn btn-primary btn-sm" href="#"><i class="ti ti-plus"></i></a> --}}
+                  </div>
+                </div>
+            </div>
+            @endforeach
+
+          {{-- <!-- Product Card -->
           <div class="col-6 col-md-4">
             <div class="card product-card">
               <div class="card-body">
@@ -334,7 +354,8 @@
                 <!-- Add to Cart --><a class="btn btn-primary btn-sm" href="#"><i class="ti ti-plus"></i></a>
               </div>
             </div>
-          </div>
+          </div> --}}
+
         </div>
       </div>
     </div>

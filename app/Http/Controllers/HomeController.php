@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AccessToken;
 use App\Models\Kategori;
 use App\Models\Post;
+use App\Models\Produk;
 use Artesaos\SEOTools\Facades\JsonLd;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\SEOMeta;
@@ -37,8 +38,9 @@ class HomeController extends Controller
         $data = [
             'title' => 'Kebab Yasmin | Home',
             'kategori' => Kategori::select('id','kategori')->orderBy('possition','ASC')->get(),
-            
+            'produk' => Produk::select('produk.id','produk.kategori_id','produk.nm_produk','produk.foto','harga.harga')->leftJoin('harga','produk.id','=','harga.produk_id')->where('produk.status','ON')->where('produk.hapus',0)->where('harga.delivery_id',1)->where('harga.harga','!=',0)->orderBy('produk.possition','ASC')->groupBy('produk.id')->get(),
         ];
+
         return view('page.home',$data);
         
     }
