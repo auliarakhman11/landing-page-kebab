@@ -4,7 +4,7 @@
 <div class="page-content-wrapper">
     <!-- Search Form-->
     <!-- Search Form-->
-    <div class="container">
+    {{-- <div class="container">
       <div class="search-form pt-3 rtl-flex-d-row-r">
         <form action="#" method="">
           <input class="form-control" type="search" placeholder="Search in Suha">
@@ -21,7 +21,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
     <!-- Hero Wrapper -->
     <div class="hero-wrapper">
       <div class="container">
@@ -60,7 +60,7 @@
       </div>
     </div>
     <!-- Product Catagories -->
-    <div class="product-catagories-wrapper py-3">
+    {{-- <div class="product-catagories-wrapper py-3">
       <div class="container">
         <div class="row g-2 rtl-flex-d-row-r">
           <!-- Catagory Card -->
@@ -113,9 +113,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
     <!-- Flash Sale Slide -->
-    <div class="flash-sale-wrapper">
+    {{-- <div class="flash-sale-wrapper">
       <div class="container">
         <div class="section-heading d-flex align-items-center justify-content-between rtl-flex-d-row-r">
           <h6 class="d-flex align-items-center rtl-flex-d-row-r"><i class="ti ti-bolt-lightning me-1 text-danger lni-flashing-effect"></i>Cyclone Offer</h6>
@@ -185,9 +185,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
     <!-- Dark Mode -->
-    <div class="container">
+    {{-- <div class="container">
       <div class="dark-mode-wrapper mt-3 bg-img p-4 p-lg-5">
         <p class="text-white">You can change your display to a dark background using a dark mode.</p>
         <div class="form-check form-switch mb-0">
@@ -195,13 +195,31 @@
           <input class="form-check-input" id="darkSwitch" type="checkbox" role="switch">
         </div>
       </div>
-    </div>
+    </div> --}}
     <!-- Top Products -->
     <div class="top-products-area py-3">
       <div class="container">
-        <div class="section-heading d-flex align-items-center justify-content-between dir-rtl">
+        {{-- <div class="section-heading d-flex align-items-center justify-content-between dir-rtl">
           <h6>Top Products</h6><a class="btn btn-sm btn-light" href="shop-grid.html">View all<i class="ms-1 ti ti-arrow-right"></i></a>
-        </div>
+        </div> --}}
+        <div class="row g-1 align-items-center rtl-flex-d-row-r">
+            <div class="col-12">
+              <!-- Product Catagories Slide -->
+              <div class="product-catagories owl-carousel catagory-slides"><a class="shadow-sm bg-warning" href="#">Furniture</a><a class="shadow-sm bg-warning" href="#">Shoes</a><a class="shadow-sm bg-warning" href="#">Dress</a><a class="shadow-sm bg-warning" href="#">Shoes</a><a class="shadow-sm bg-warning" href="#">Dress</a></div>
+            </div>
+            {{-- <div class="col-4">
+              <!-- Select Product Catagory-->
+              <div class="select-product-catagory">
+                <select class="right small border-0" id="selectProductCatagory" name="selectProductCatagory" aria-label="Default select example">
+                  <option selected>Short by</option>
+                  <option value="1">Newest</option>
+                  <option value="2">Popular</option>
+                  <option value="3">Ratings</option>
+                </select>
+              </div>
+            </div> --}}
+          </div>
+          <div class="mb-3"></div>
         <div class="row g-2">
           <!-- Product Card -->
           <div class="col-6 col-md-4">
@@ -317,7 +335,7 @@
       </div>
     </div>
     <!-- CTA Area -->
-    <div class="container">
+    {{-- <div class="container">
       <div class="cta-text dir-rtl p-4 p-lg-5">
         <div class="row">
           <div class="col-9">
@@ -325,9 +343,9 @@
           </div>
         </div><img src="{{asset('suha')}}/img/bg-img/make-up.png" alt="">
       </div>
-    </div>
+    </div> --}}
     <!-- Weekly Best Sellers-->
-    <div class="weekly-best-seller-area py-3">
+    {{-- <div class="weekly-best-seller-area py-3">
       <div class="container">
         <div class="section-heading d-flex align-items-center justify-content-between dir-rtl">
           <h6>Weekly Best Sellers</h6><a class="btn btn-sm btn-light" href="shop-list.html">
@@ -408,7 +426,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
     <!-- Discount Coupon Card-->
     <div class="container">
       <div class="discount-coupon-card p-4 p-lg-5 dir-rtl">
@@ -425,7 +443,8 @@
     <div class="featured-products-wrapper py-3">
       <div class="container">
         <div class="section-heading d-flex align-items-center justify-content-between dir-rtl">
-          <h6>Featured Products</h6><a class="btn btn-sm btn-light" href="featured-products.html">View all<i class="ms-1 ti ti-arrow-right"></i></a>
+          <h6>Produk Terlaris</h6>
+          {{-- <a class="btn btn-sm btn-light" href="featured-products.html">View all<i class="ms-1 ti ti-arrow-right"></i></a> --}}
         </div>
         <div class="row g-2">
           <!-- Featured Product Card-->
@@ -527,7 +546,7 @@
         </div>
       </div>
     </div>
-    <div class="pb-3">
+    {{-- <div class="pb-3">
       <div class="container">
         <div class="section-heading d-flex align-items-center justify-content-between dir-rtl">
           <h6>Collections</h6><a class="btn btn-sm btn-light" href="#">
@@ -561,7 +580,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
   </div>
 
 @endsection

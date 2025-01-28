@@ -10,17 +10,17 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <!-- The above tags *must* come first in the head, any other head content must come *after* these tags -->
     <!-- Title -->
-    <title>Suha - Multipurpose Ecommerce Mobile HTML Template</title>
+    <title>{{ $title }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet">
     <!-- Favicon -->
-    <link rel="icon" href="{{asset('suha')}}/img/icons/icon-72x72.png">
+    <link rel="icon" href="{{ asset('img') }}/kebab-yasmin.png">
     <!-- Apple Touch Icon -->
-    <link rel="apple-touch-icon" href="{{asset('suha')}}/img/icons/icon-96x96.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{asset('suha')}}/img/icons/icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="{{asset('suha')}}/img/icons/icon-167x167.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('suha')}}/img/icons/icon-180x180.png">
+    <link rel="apple-touch-icon" href="{{ asset('img') }}/kebab-yasmin.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('img') }}/kebab-yasmin.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="{{ asset('img') }}/kebab-yasmin.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img') }}/kebab-yasmin.png">
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{asset('suha')}}/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('suha')}}/css/tabler-icons.min.css">
@@ -45,14 +45,14 @@
 	@include('template._header')
 	@include('template._sidebar')
     <!-- PWA Install Alert -->
-    <div class="toast pwa-install-alert shadow bg-white" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="5000" data-bs-autohide="true">
+    {{-- <div class="toast pwa-install-alert shadow bg-white" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="5000" data-bs-autohide="true">
       <div class="toast-body">
         <div class="content d-flex align-items-center mb-2"><img src="{{asset('suha')}}/img/icons/icon-72x72.png" alt="">
           <h6 class="mb-0">Add to Home Screen</h6>
           <button class="btn-close ms-auto" type="button" data-bs-dismiss="toast" aria-label="Close"></button>
         </div><span class="mb-0 d-block">Click the<strong class="mx-1">Add to Home Screen</strong>button &amp; enjoy it like a regular app.</span>
       </div>
-    </div>
+    </div> --}}
 
     @yield('content')
 
@@ -74,6 +74,6 @@
     <script src="{{asset('suha')}}/js/theme-switching.js"></script>
     <script src="{{asset('suha')}}/js/no-internet.js"></script>
     <script src="{{asset('suha')}}/js/active.js"></script>
-    <script src="{{asset('suha')}}/js/pwa.js"></script>
+    {{-- <script src="{{asset('suha')}}/js/pwa.js"></script> --}}
   </body>
 </html>

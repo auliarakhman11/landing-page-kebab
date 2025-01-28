@@ -1,8 +1,8 @@
 <div class="header-area" id="headerArea">
-    <div class="container h-100 d-flex align-items-center justify-content-between d-flex rtl-flex-d-row-r">
+    <div class="container h-100 d-flex align-items-center justify-content-center d-flex rtl-flex-d-row-r">
       <!-- Logo Wrapper -->
-      <div class="logo-wrapper"><a href="{{ route('home') }}"><img src="{{ asset('img') }}/kebab-yasmin.png" alt="" style="height: 50px;"></a></div>
-      <div class="navbar-logo-container d-flex align-items-center">
+      <div class="logo-wrapper"><a href="{{ route('home') }}"><img src="{{ asset('img') }}/kebab-yasmin.png" alt="" style="height: 55px;"></a></div>
+      {{-- <div class="navbar-logo-container d-flex align-items-center">
         <!-- Cart Icon -->
         <div class="cart-icon-wrap"><a href="cart.html"><i class="ti ti-basket-bolt"></i><span>13</span></a></div>
         <!-- User Profile Icon -->
@@ -11,6 +11,6 @@
         <div class="suha-navbar-toggler ms-2" data-bs-toggle="offcanvas" data-bs-target="#suhaOffcanvas" aria-controls="suhaOffcanvas">
           <div><span></span><span></span><span></span></div>
         </div>
-      </div>
+      </div> --}}
     </div>
   </div>

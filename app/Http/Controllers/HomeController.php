@@ -23,7 +23,7 @@ class HomeController extends Controller
         OpenGraph::setDescription('Surganya Ngebab!');
         OpenGraph::setTitle('Home');
         OpenGraph::setUrl(route('home'));
-        OpenGraph::addImage(asset('auth').'/images/kebabyasmin-removebg.png', ['height' => 300, 'width' => 300]);
+        OpenGraph::addImage(asset('img').'/kebab-yasmin.png', ['height' => 300, 'width' => 300]);
 
         TwitterCard::setTitle('Home');
         TwitterCard::setDescription('Surganya Ngebab!');
@@ -31,7 +31,7 @@ class HomeController extends Controller
 
         JsonLd::setTitle('Home');
         JsonLd::setDescription('Surganya Ngebab!');
-        JsonLd::addImage(asset('auth').'/images/kebabyasmin-removebg.png');
+        JsonLd::addImage(asset('img').'/kebab-yasmin.png');
 
         $data = [
             'title' => 'Kebab Yasmin | Home',
@@ -50,7 +50,7 @@ class HomeController extends Controller
     //     OpenGraph::setDescription('The Best Snack In The Night');
     //     OpenGraph::setTitle('Home');
     //     OpenGraph::setUrl(route('home'));
-    //     OpenGraph::addImage(asset('auth').'/images/kebabyasmin-removebg.png', ['height' => 300, 'width' => 300]);
+    //     OpenGraph::addImage(asset('auth').'/kebab-yasmin.png', ['height' => 300, 'width' => 300]);
 
     //     TwitterCard::setTitle('Home');
     //     TwitterCard::setDescription('The Best Snack In The Night');
@@ -58,7 +58,7 @@ class HomeController extends Controller
 
     //     JsonLd::setTitle('Home');
     //     JsonLd::setDescription('The Best Snack In The Night');
-    //     JsonLd::addImage(asset('auth').'/images/kebabyasmin-removebg.png');
+    //     JsonLd::addImage(asset('auth').'/kebab-yasmin.png');
 
     //     // $api_url = "https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type&access_token=IGQVJYd0otOE5SSm9xTFhBWGpFUXJqYUZAiaFF3a2QtSC1xajBwSHRnQUFxbHlKaDh4NEladUdIXzQzM3JsdUpIcjBTclctZA25fMTNJS1NZAMVZAfWmhNcmZALNFQ4dEIyWmxsNUVCQWlRRUpxUjJheVpmNgZDZD";
     //     $dt_token = AccessToken::where('id',1)->first();
