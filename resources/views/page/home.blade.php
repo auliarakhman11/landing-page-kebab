@@ -204,8 +204,12 @@
         </div> --}}
         <div class="row g-1 align-items-center rtl-flex-d-row-r">
             <div class="col-12">
-              <!-- Product Catagories Slide -->
-              <div class="product-catagories owl-carousel catagory-slides"><a class="shadow-sm bg-warning" href="#">Furniture</a><a class="shadow-sm bg-warning" href="#">Shoes</a><a class="shadow-sm bg-warning" href="#">Dress</a><a class="shadow-sm bg-warning" href="#">Shoes</a><a class="shadow-sm bg-warning" href="#">Dress</a></div>
+                <!-- Product Catagories Slide -->
+                <div class="product-catagories owl-carousel catagory-slides">
+                    @foreach ($kategori as $k)
+                    <a class="shadow-sm bg-warning" href="#">{{ $k->kategori }}</a>
+                    @endforeach                    
+                </div>
             </div>
             {{-- <div class="col-4">
               <!-- Select Product Catagory-->

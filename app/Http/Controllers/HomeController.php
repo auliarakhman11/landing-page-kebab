@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AccessToken;
+use App\Models\Kategori;
 use App\Models\Post;
 use Artesaos\SEOTools\Facades\JsonLd;
 use Artesaos\SEOTools\Facades\OpenGraph;
@@ -35,6 +36,7 @@ class HomeController extends Controller
 
         $data = [
             'title' => 'Kebab Yasmin | Home',
+            'kategori' => Kategori::select('id','kategori')->orderBy('possition','ASC')->get(),
             
         ];
         return view('page.home',$data);
