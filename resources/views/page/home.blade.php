@@ -186,201 +186,137 @@
         </div>
       </div>
     </div> --}}
-    <!-- Dark Mode -->
-    {{-- <div class="container">
-      <div class="dark-mode-wrapper mt-3 bg-img p-4 p-lg-5">
-        <p class="text-white">You can change your display to a dark background using a dark mode.</p>
-        <div class="form-check form-switch mb-0">
-          <label class="form-check-label text-white h6 mb-0" for="darkSwitch">Switch to Dark Mode</label>
-          <input class="form-check-input" id="darkSwitch" type="checkbox" role="switch">
-        </div>
-      </div>
-    </div> --}}
+    
     <!-- Top Products -->
-    <div class="top-products-area py-3">
-      <div class="container">
-        {{-- <div class="section-heading d-flex align-items-center justify-content-between dir-rtl">
-          <h6>Top Products</h6><a class="btn btn-sm btn-light" href="shop-grid.html">View all<i class="ms-1 ti ti-arrow-right"></i></a>
-        </div> --}}
-        <div class="row g-1 align-items-center rtl-flex-d-row-r">
-            <div class="col-12">
-                <!-- Product Catagories Slide -->
-                <div class="product-catagories owl-carousel catagory-slides">
-                    <a class="shadow-sm bg-warning boxselect" href="javascript:void(0)" kategori_id="all">All</a>
-                    @foreach ($kategori as $k)
-                    <a class="shadow-sm bg-warning boxselect" href="javascript:void(0)" kategori_id="{{ $k->id }}">{{ $k->kategori }}</a>
-                    @endforeach                    
-                </div>
-            </div>
-            {{-- <div class="col-4">
-              <!-- Select Product Catagory-->
-              <div class="select-product-catagory">
-                <select class="right small border-0" id="selectProductCatagory" name="selectProductCatagory" aria-label="Default select example">
-                  <option selected>Short by</option>
-                  <option value="1">Newest</option>
-                  <option value="2">Popular</option>
-                  <option value="3">Ratings</option>
-                </select>
-              </div>
-            </div> --}}
+    
+    <div class="featured-products-wrapper py-3">
+        <div class="container">
+          <div class="section-heading d-flex align-items-center justify-content-between dir-rtl">
+            <h6>Produk Terlaris</h6>
+            {{-- <a class="btn btn-sm btn-light" href="featured-products.html">View all<i class="ms-1 ti ti-arrow-right"></i></a> --}}
           </div>
-
-
-        <div class="search-form pt-3 rtl-flex-d-row-r">
-        <form action="#" method="">
-            <input id="search_field" class="form-control" type="text" placeholder="Search product">
-            
-            {{-- <button type="submit"><i class="ti ti-search"></i></button> --}}
-        </form>
-        <!-- Alternative Search Options -->
-        {{-- <div class="alternative-search-options">
-            <div class="dropdown"><a class="btn btn-primary dropdown-toggle" id="altSearchOption" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="ti ti-adjustments-horizontal"></i></a>
-            <!-- Dropdown Menu -->
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="altSearchOption">
-                <li><a class="dropdown-item" href="#"><i class="ti ti-microphone"> </i>Voice</a></li>
-                <li><a class="dropdown-item" href="#"><i class="ti ti-layout-collage"> </i>Image</a></li>
-            </ul>
-            </div>
-        </div> --}}
-        </div>
-
-
-          <div class="mb-3"></div>
-        <div class="row g-2" id="demonames">
-        
-            @foreach ($produk as $p)
-            <div class="col-4 col-md-4 box all {{ $p->kategori_id }}">
-                <div class="card product-card">
-                  <div class="card-body">
-                    {{-- <!-- Badge--><span class="badge rounded-pill badge-success">New</span>
-                    <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="ti ti-heart"></i></a> --}}
-                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" loading="lazy" src="https://admin.kebabyasmin.id/{{ $p->foto }}" alt=""></a>
-                    <!-- Product Title --><a class="product-title demoname" href="single-product.html" style="font-size: 12px;">{{ $p->nm_produk }}</a>
-                    <!-- Product Price -->
-                    <p class="sale-price" style="font-size: 12px;">Rp.{{ number_format($p->harga,0) }}</span></p>
-                    {{-- <p class="sale-price">$74<span>$99</span></p> --}}
-                    <!-- Rating -->
-                    {{-- <div class="product-rating"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div> --}}
-                    {{-- <!-- Add to Cart --><a class="btn btn-primary btn-sm" href="#"><i class="ti ti-plus"></i></a> --}}
+          <div class="row g-2">
+  
+          @foreach ($terlaris as $t)
+          <div class="col-4">
+              <div class="card featured-product-card">
+                <div class="card-body">
+                  <!-- Badge--><span class="badge badge-warning custom-badge"><i class="ti ti-star-filled"></i></span>
+                  <div class="product-thumbnail-side">
+                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img src="https://admin.kebabyasmin.id/{{ $t->foto }}" alt=""></a>
+                  </div>
+                  <div class="product-description">
+                    <!-- Product Title --><a class="product-title d-block" href="single-product.html">{{ $t->nm_produk }}</a>
+                    <!-- Price -->
+                    {{-- <p class="sale-price">$39<span>$89</span></p> --}}
+                    <p class="sale-price">{{ number_format($t->harga,0) }}</p>
                   </div>
                 </div>
-            </div>
-            @endforeach
-
-          {{-- <!-- Product Card -->
-          <div class="col-6 col-md-4">
-            <div class="card product-card">
-              <div class="card-body">
-                <!-- Badge--><span class="badge rounded-pill badge-warning">Sale</span>
-                <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="ti ti-heart">                       </i></a>
-                <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" src="{{asset('suha')}}/img/product/11.png" alt="">
-                  <!-- Offer Countdown Timer: Please use event time this format: YYYY/MM/DD hh:mm:ss -->
-                  <ul class="offer-countdown-timer d-flex align-items-center shadow-sm" data-countdown="2024/12/31 23:59:59">
-                    <li><span class="days">0</span>d</li>
-                    <li><span class="hours">0</span>h</li>
-                    <li><span class="minutes">0</span>m</li>
-                    <li><span class="seconds">0</span>s</li>
-                  </ul></a>
-                <!-- Product Title --><a class="product-title" href="single-product.html">Beach Cap</a>
-                <!-- Product Price -->
-                <p class="sale-price">$13<span>$42</span></p>
-                <!-- Rating -->
-                <div class="product-rating"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div>
-                <!-- Add to Cart --><a class="btn btn-primary btn-sm" href="#"><i class="ti ti-plus"></i></a>
               </div>
             </div>
+          @endforeach
+  
+            {{-- <!-- Featured Product Card-->
+            <div class="col-4">
+              <div class="card featured-product-card">
+                <div class="card-body">
+                  <!-- Badge--><span class="badge badge-warning custom-badge"><i class="ti ti-star-filled"></i></span>
+                  <div class="product-thumbnail-side">
+                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img src="{{asset('suha')}}/img/product/14.png" alt=""></a>
+                  </div>
+                  <div class="product-description">
+                    <!-- Product Title --><a class="product-title d-block" href="single-product.html">Blue Skateboard</a>
+                    <!-- Price -->
+                    <p class="sale-price">$39<span>$89</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Featured Product Card-->
+            <div class="col-4">
+              <div class="card featured-product-card">
+                <div class="card-body">
+                  <!-- Badge--><span class="badge badge-warning custom-badge"><i class="ti ti-star-filled"></i></span>
+                  <div class="product-thumbnail-side">
+                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img src="{{asset('suha')}}/img/product/15.png" alt=""></a>
+                  </div>
+                  <div class="product-description">
+                    <!-- Product Title --><a class="product-title d-block" href="single-product.html">Travel Bag</a>
+                    <!-- Price -->
+                    <p class="sale-price">$14.7<span>$21</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Featured Product Card-->
+            <div class="col-4">
+              <div class="card featured-product-card">
+                <div class="card-body">
+                  <!-- Badge--><span class="badge badge-warning custom-badge"><i class="ti ti-star-filled"></i></span>
+                  <div class="product-thumbnail-side">
+                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img src="{{asset('suha')}}/img/product/16.png" alt=""></a>
+                  </div>
+                  <div class="product-description">
+                    <!-- Product Title --><a class="product-title d-block" href="single-product.html">Cotton T-shirts</a>
+                    <!-- Price -->
+                    <p class="sale-price">$3.69<span>$5</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Featured Product Card-->
+            <div class="col-4">
+              <div class="card featured-product-card">
+                <div class="card-body">
+                  <!-- Badge--><span class="badge badge-warning custom-badge"><i class="ti ti-star-filled"></i></span>
+                  <div class="product-thumbnail-side">
+                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img src="{{asset('suha')}}/img/product/21.png" alt=""></a>
+                  </div>
+                  <div class="product-description">
+                    <!-- Product Title --><a class="product-title d-block" href="single-product.html">ECG Rice Cooker</a>
+                    <!-- Price -->
+                    <p class="sale-price">$9.33<span>$13</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Featured Product Card-->
+            <div class="col-4">
+              <div class="card featured-product-card">
+                <div class="card-body">
+                  <!-- Badge--><span class="badge badge-warning custom-badge"><i class="ti ti-star-filled"></i></span>
+                  <div class="product-thumbnail-side">
+                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img src="{{asset('suha')}}/img/product/20.png" alt=""></a>
+                  </div>
+                  <div class="product-description">
+                    <!-- Product Title --><a class="product-title d-block" href="single-product.html">Beauty Cosmetics</a>
+                    <!-- Price -->
+                    <p class="sale-price">$5.99<span>$8</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Featured Product Card-->
+            <div class="col-4">
+              <div class="card featured-product-card">
+                <div class="card-body">
+                  <!-- Badge--><span class="badge badge-warning custom-badge"><i class="ti ti-star-filled"></i></span>
+                  <div class="product-thumbnail-side">
+                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img src="{{asset('suha')}}/img/product/19.png" alt=""></a>
+                  </div>
+                  <div class="product-description">
+                    <!-- Product Title --><a class="product-title d-block" href="single-product.html">Basketball</a>
+                    <!-- Price -->
+                    <p class="sale-price">$16<span>$20</span></p>
+                  </div>
+                </div>
+              </div>
+            </div> --}}
+  
           </div>
-          <!-- Product Card -->
-          <div class="col-6 col-md-4">
-            <div class="card product-card">
-              <div class="card-body">
-                <!-- Badge--><span class="badge rounded-pill badge-success">New</span>
-                <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="ti ti-heart">                       </i></a>
-                <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" src="{{asset('suha')}}/img/product/5.png" alt=""></a>
-                <!-- Product Title --><a class="product-title" href="single-product.html">Wooden Sofa</a>
-                <!-- Product Price -->
-                <p class="sale-price">$74<span>$99</span></p>
-                <!-- Rating -->
-                <div class="product-rating"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div>
-                <!-- Add to Cart --><a class="btn btn-primary btn-sm" href="#"><i class="ti ti-plus"></i></a>
-              </div>
-            </div>
-          </div>
-          <!-- Product Card -->
-          <div class="col-6 col-md-4">
-            <div class="card product-card">
-              <div class="card-body">
-                <!-- Badge--><span class="badge rounded-pill badge-success">Sale</span>
-                <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="ti ti-heart">                       </i></a>
-                <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" src="{{asset('suha')}}/img/product/6.png" alt=""></a>
-                <!-- Product Title --><a class="product-title" href="single-product.html">Roof Lamp</a>
-                <!-- Product Price -->
-                <p class="sale-price">$99<span>$113</span></p>
-                <!-- Rating -->
-                <div class="product-rating"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div>
-                <!-- Add to Cart --><a class="btn btn-primary btn-sm" href="#"><i class="ti ti-plus"></i></a>
-              </div>
-            </div>
-          </div>
-          <!-- Product Card -->
-          <div class="col-6 col-md-4">
-            <div class="card product-card">
-              <div class="card-body">
-                <!-- Badge--><span class="badge rounded-pill badge-danger">-18%</span>
-                <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="ti ti-heart">                       </i></a>
-                <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" src="{{asset('suha')}}/img/product/9.png" alt="">
-                  <!-- Offer Countdown Timer: Please use event time this format: YYYY/MM/DD hh:mm:ss -->
-                  <ul class="offer-countdown-timer d-flex align-items-center shadow-sm" data-countdown="2024/12/23 00:21:29">
-                    <li><span class="days">0</span>d</li>
-                    <li><span class="hours">0</span>h</li>
-                    <li><span class="minutes">0</span>m</li>
-                    <li><span class="seconds">0</span>s</li>
-                  </ul></a>
-                <!-- Product Title --><a class="product-title" href="single-product.html">Sneaker Shoes</a>
-                <!-- Product Price -->
-                <p class="sale-price">$87<span>$92</span></p>
-                <!-- Rating -->
-                <div class="product-rating"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div>
-                <!-- Add to Cart --><a class="btn btn-primary btn-sm" href="#"><i class="ti ti-plus"></i></a>
-              </div>
-            </div>
-          </div>
-          <!-- Product Card -->
-          <div class="col-6 col-md-4">
-            <div class="card product-card">
-              <div class="card-body">
-                <!-- Badge--><span class="badge rounded-pill badge-danger">-11%</span>
-                <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="ti ti-heart"></i></a>
-                <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" src="{{asset('suha')}}/img/product/8.png" alt=""></a>
-                <!-- Product Title --><a class="product-title" href="single-product.html">Wooden Chair</a>
-                <!-- Product Price -->
-                <p class="sale-price">$21<span>$25</span></p>
-                <!-- Rating -->
-                <div class="product-rating"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div>
-                <!-- Add to Cart --><a class="btn btn-primary btn-sm" href="#"><i class="ti ti-plus"></i></a>
-              </div>
-            </div>
-          </div>
-          <!-- Product Card -->
-          <div class="col-6 col-md-4">
-            <div class="card product-card">
-              <div class="card-body">
-                <!-- Badge--><span class="badge rounded-pill badge-warning">On Sale</span>
-                <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="ti ti-heart"></i></a>
-                <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" src="{{asset('suha')}}/img/product/4.png" alt=""></a>
-                <!-- Product Title --><a class="product-title" href="single-product.html">Polo Shirts</a>
-                <!-- Product Price -->
-                <p class="sale-price">$38<span>$41</span></p>
-                <!-- Rating -->
-                <div class="product-rating"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div>
-                <!-- Add to Cart --><a class="btn btn-primary btn-sm" href="#"><i class="ti ti-plus"></i></a>
-              </div>
-            </div>
-          </div> --}}
-
         </div>
       </div>
-    </div>
+
     <!-- CTA Area -->
     {{-- <div class="container">
       <div class="cta-text dir-rtl p-4 p-lg-5">
@@ -475,7 +411,7 @@
       </div>
     </div> --}}
     <!-- Discount Coupon Card-->
-    <div class="container">
+    {{-- <div class="container">
       <div class="discount-coupon-card p-4 p-lg-5 dir-rtl">
         <div class="d-flex align-items-center">
           <div class="discountIcon"><img class="w-100" src="{{asset('suha')}}/img/core-img/discount.png" alt=""></div>
@@ -485,114 +421,208 @@
           </div>
         </div>
       </div>
-    </div>
-    <!-- Featured Products Wrapper-->
-    <div class="featured-products-wrapper py-3">
-      <div class="container">
-        <div class="section-heading d-flex align-items-center justify-content-between dir-rtl">
-          <h6>Produk Terlaris</h6>
-          {{-- <a class="btn btn-sm btn-light" href="featured-products.html">View all<i class="ms-1 ti ti-arrow-right"></i></a> --}}
-        </div>
-        <div class="row g-2">
-          <!-- Featured Product Card-->
-          <div class="col-4">
-            <div class="card featured-product-card">
-              <div class="card-body">
-                <!-- Badge--><span class="badge badge-warning custom-badge"><i class="ti ti-star-filled"></i></span>
-                <div class="product-thumbnail-side">
-                  <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img src="{{asset('suha')}}/img/product/14.png" alt=""></a>
-                </div>
-                <div class="product-description">
-                  <!-- Product Title --><a class="product-title d-block" href="single-product.html">Blue Skateboard</a>
-                  <!-- Price -->
-                  <p class="sale-price">$39<span>$89</span></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Featured Product Card-->
-          <div class="col-4">
-            <div class="card featured-product-card">
-              <div class="card-body">
-                <!-- Badge--><span class="badge badge-warning custom-badge"><i class="ti ti-star-filled"></i></span>
-                <div class="product-thumbnail-side">
-                  <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img src="{{asset('suha')}}/img/product/15.png" alt=""></a>
-                </div>
-                <div class="product-description">
-                  <!-- Product Title --><a class="product-title d-block" href="single-product.html">Travel Bag</a>
-                  <!-- Price -->
-                  <p class="sale-price">$14.7<span>$21</span></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Featured Product Card-->
-          <div class="col-4">
-            <div class="card featured-product-card">
-              <div class="card-body">
-                <!-- Badge--><span class="badge badge-warning custom-badge"><i class="ti ti-star-filled"></i></span>
-                <div class="product-thumbnail-side">
-                  <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img src="{{asset('suha')}}/img/product/16.png" alt=""></a>
-                </div>
-                <div class="product-description">
-                  <!-- Product Title --><a class="product-title d-block" href="single-product.html">Cotton T-shirts</a>
-                  <!-- Price -->
-                  <p class="sale-price">$3.69<span>$5</span></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Featured Product Card-->
-          <div class="col-4">
-            <div class="card featured-product-card">
-              <div class="card-body">
-                <!-- Badge--><span class="badge badge-warning custom-badge"><i class="ti ti-star-filled"></i></span>
-                <div class="product-thumbnail-side">
-                  <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img src="{{asset('suha')}}/img/product/21.png" alt=""></a>
-                </div>
-                <div class="product-description">
-                  <!-- Product Title --><a class="product-title d-block" href="single-product.html">ECG Rice Cooker</a>
-                  <!-- Price -->
-                  <p class="sale-price">$9.33<span>$13</span></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Featured Product Card-->
-          <div class="col-4">
-            <div class="card featured-product-card">
-              <div class="card-body">
-                <!-- Badge--><span class="badge badge-warning custom-badge"><i class="ti ti-star-filled"></i></span>
-                <div class="product-thumbnail-side">
-                  <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img src="{{asset('suha')}}/img/product/20.png" alt=""></a>
-                </div>
-                <div class="product-description">
-                  <!-- Product Title --><a class="product-title d-block" href="single-product.html">Beauty Cosmetics</a>
-                  <!-- Price -->
-                  <p class="sale-price">$5.99<span>$8</span></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Featured Product Card-->
-          <div class="col-4">
-            <div class="card featured-product-card">
-              <div class="card-body">
-                <!-- Badge--><span class="badge badge-warning custom-badge"><i class="ti ti-star-filled"></i></span>
-                <div class="product-thumbnail-side">
-                  <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img src="{{asset('suha')}}/img/product/19.png" alt=""></a>
-                </div>
-                <div class="product-description">
-                  <!-- Product Title --><a class="product-title d-block" href="single-product.html">Basketball</a>
-                  <!-- Price -->
-                  <p class="sale-price">$16<span>$20</span></p>
-                </div>
-              </div>
-            </div>
+    </div> --}}
+
+    <!-- Dark Mode -->
+    <div class="container">
+        <div class="dark-mode-wrapper mt-3 bg-img p-4 p-lg-5">
+          <p class="text-white">You can change your display to a dark background using a dark mode.</p>
+          <div class="form-check form-switch mb-0">
+            <label class="form-check-label text-white h6 mb-0" for="darkSwitch">Switch to Dark Mode</label>
+            <input class="form-check-input" id="darkSwitch" type="checkbox" role="switch">
           </div>
         </div>
       </div>
-    </div>
+
+    <!-- Featured Products Wrapper-->
+
+    <div class="top-products-area py-3">
+        <div class="container">
+          <div class="section-heading d-flex align-items-center justify-content-between dir-rtl">
+            <h6>Semua Produk</h6>
+            {{-- <a class="btn btn-sm btn-light" href="shop-grid.html">View all<i class="ms-1 ti ti-arrow-right"></i></a> --}}
+          </div>
+          <div class="row g-1 align-items-center rtl-flex-d-row-r">
+              <div class="col-12">
+                  <!-- Product Catagories Slide -->
+                  <div class="product-catagories owl-carousel catagory-slides">
+                      <a class="shadow-sm bg-warning boxselect" href="javascript:void(0)" kategori_id="all">All</a>
+                      @foreach ($kategori as $k)
+                      <a class="shadow-sm bg-warning boxselect" href="javascript:void(0)" kategori_id="{{ $k->id }}">{{ $k->kategori }}</a>
+                      @endforeach                    
+                  </div>
+              </div>
+              {{-- <div class="col-4">
+                <!-- Select Product Catagory-->
+                <div class="select-product-catagory">
+                  <select class="right small border-0" id="selectProductCatagory" name="selectProductCatagory" aria-label="Default select example">
+                    <option selected>Short by</option>
+                    <option value="1">Newest</option>
+                    <option value="2">Popular</option>
+                    <option value="3">Ratings</option>
+                  </select>
+                </div>
+              </div> --}}
+            </div>
+  
+  
+          <div class="search-form pt-3 rtl-flex-d-row-r">
+          <form action="#" method="">
+              <input id="search_field" class="form-control" type="text" placeholder="Search product">
+              
+              {{-- <button type="submit"><i class="ti ti-search"></i></button> --}}
+          </form>
+          <!-- Alternative Search Options -->
+          {{-- <div class="alternative-search-options">
+              <div class="dropdown"><a class="btn btn-primary dropdown-toggle" id="altSearchOption" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="ti ti-adjustments-horizontal"></i></a>
+              <!-- Dropdown Menu -->
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="altSearchOption">
+                  <li><a class="dropdown-item" href="#"><i class="ti ti-microphone"> </i>Voice</a></li>
+                  <li><a class="dropdown-item" href="#"><i class="ti ti-layout-collage"> </i>Image</a></li>
+              </ul>
+              </div>
+          </div> --}}
+          </div>
+  
+  
+            <div class="mb-3"></div>
+          <div class="row g-2" id="demonames">
+          
+              @foreach ($produk as $p)
+              <div class="col-4 col-md-4 box all {{ $p->kategori_id }}">
+                  <div class="card product-card">
+                    <div class="card-body">
+                      {{-- <!-- Badge--><span class="badge rounded-pill badge-success">New</span>
+                      <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="ti ti-heart"></i></a> --}}
+                      <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" loading="lazy" src="https://admin.kebabyasmin.id/{{ $p->foto }}" alt=""></a>
+                      <!-- Product Title --><a class="product-title demoname" href="single-product.html" style="font-size: 12px;">{{ $p->nm_produk }}</a>
+                      <!-- Product Price -->
+                      <p class="sale-price" style="font-size: 12px;">Rp.{{ number_format($p->harga,0) }}</span></p>
+                      {{-- <p class="sale-price">$74<span>$99</span></p> --}}
+                      <!-- Rating -->
+                      {{-- <div class="product-rating"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div> --}}
+                      {{-- <!-- Add to Cart --><a class="btn btn-primary btn-sm" href="#"><i class="ti ti-plus"></i></a> --}}
+                    </div>
+                  </div>
+              </div>
+              @endforeach
+  
+            {{-- <!-- Product Card -->
+            <div class="col-6 col-md-4">
+              <div class="card product-card">
+                <div class="card-body">
+                  <!-- Badge--><span class="badge rounded-pill badge-warning">Sale</span>
+                  <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="ti ti-heart">                       </i></a>
+                  <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" src="{{asset('suha')}}/img/product/11.png" alt="">
+                    <!-- Offer Countdown Timer: Please use event time this format: YYYY/MM/DD hh:mm:ss -->
+                    <ul class="offer-countdown-timer d-flex align-items-center shadow-sm" data-countdown="2024/12/31 23:59:59">
+                      <li><span class="days">0</span>d</li>
+                      <li><span class="hours">0</span>h</li>
+                      <li><span class="minutes">0</span>m</li>
+                      <li><span class="seconds">0</span>s</li>
+                    </ul></a>
+                  <!-- Product Title --><a class="product-title" href="single-product.html">Beach Cap</a>
+                  <!-- Product Price -->
+                  <p class="sale-price">$13<span>$42</span></p>
+                  <!-- Rating -->
+                  <div class="product-rating"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div>
+                  <!-- Add to Cart --><a class="btn btn-primary btn-sm" href="#"><i class="ti ti-plus"></i></a>
+                </div>
+              </div>
+            </div>
+            <!-- Product Card -->
+            <div class="col-6 col-md-4">
+              <div class="card product-card">
+                <div class="card-body">
+                  <!-- Badge--><span class="badge rounded-pill badge-success">New</span>
+                  <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="ti ti-heart">                       </i></a>
+                  <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" src="{{asset('suha')}}/img/product/5.png" alt=""></a>
+                  <!-- Product Title --><a class="product-title" href="single-product.html">Wooden Sofa</a>
+                  <!-- Product Price -->
+                  <p class="sale-price">$74<span>$99</span></p>
+                  <!-- Rating -->
+                  <div class="product-rating"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div>
+                  <!-- Add to Cart --><a class="btn btn-primary btn-sm" href="#"><i class="ti ti-plus"></i></a>
+                </div>
+              </div>
+            </div>
+            <!-- Product Card -->
+            <div class="col-6 col-md-4">
+              <div class="card product-card">
+                <div class="card-body">
+                  <!-- Badge--><span class="badge rounded-pill badge-success">Sale</span>
+                  <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="ti ti-heart">                       </i></a>
+                  <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" src="{{asset('suha')}}/img/product/6.png" alt=""></a>
+                  <!-- Product Title --><a class="product-title" href="single-product.html">Roof Lamp</a>
+                  <!-- Product Price -->
+                  <p class="sale-price">$99<span>$113</span></p>
+                  <!-- Rating -->
+                  <div class="product-rating"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div>
+                  <!-- Add to Cart --><a class="btn btn-primary btn-sm" href="#"><i class="ti ti-plus"></i></a>
+                </div>
+              </div>
+            </div>
+            <!-- Product Card -->
+            <div class="col-6 col-md-4">
+              <div class="card product-card">
+                <div class="card-body">
+                  <!-- Badge--><span class="badge rounded-pill badge-danger">-18%</span>
+                  <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="ti ti-heart">                       </i></a>
+                  <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" src="{{asset('suha')}}/img/product/9.png" alt="">
+                    <!-- Offer Countdown Timer: Please use event time this format: YYYY/MM/DD hh:mm:ss -->
+                    <ul class="offer-countdown-timer d-flex align-items-center shadow-sm" data-countdown="2024/12/23 00:21:29">
+                      <li><span class="days">0</span>d</li>
+                      <li><span class="hours">0</span>h</li>
+                      <li><span class="minutes">0</span>m</li>
+                      <li><span class="seconds">0</span>s</li>
+                    </ul></a>
+                  <!-- Product Title --><a class="product-title" href="single-product.html">Sneaker Shoes</a>
+                  <!-- Product Price -->
+                  <p class="sale-price">$87<span>$92</span></p>
+                  <!-- Rating -->
+                  <div class="product-rating"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div>
+                  <!-- Add to Cart --><a class="btn btn-primary btn-sm" href="#"><i class="ti ti-plus"></i></a>
+                </div>
+              </div>
+            </div>
+            <!-- Product Card -->
+            <div class="col-6 col-md-4">
+              <div class="card product-card">
+                <div class="card-body">
+                  <!-- Badge--><span class="badge rounded-pill badge-danger">-11%</span>
+                  <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="ti ti-heart"></i></a>
+                  <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" src="{{asset('suha')}}/img/product/8.png" alt=""></a>
+                  <!-- Product Title --><a class="product-title" href="single-product.html">Wooden Chair</a>
+                  <!-- Product Price -->
+                  <p class="sale-price">$21<span>$25</span></p>
+                  <!-- Rating -->
+                  <div class="product-rating"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div>
+                  <!-- Add to Cart --><a class="btn btn-primary btn-sm" href="#"><i class="ti ti-plus"></i></a>
+                </div>
+              </div>
+            </div>
+            <!-- Product Card -->
+            <div class="col-6 col-md-4">
+              <div class="card product-card">
+                <div class="card-body">
+                  <!-- Badge--><span class="badge rounded-pill badge-warning">On Sale</span>
+                  <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="ti ti-heart"></i></a>
+                  <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" src="{{asset('suha')}}/img/product/4.png" alt=""></a>
+                  <!-- Product Title --><a class="product-title" href="single-product.html">Polo Shirts</a>
+                  <!-- Product Price -->
+                  <p class="sale-price">$38<span>$41</span></p>
+                  <!-- Rating -->
+                  <div class="product-rating"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div>
+                  <!-- Add to Cart --><a class="btn btn-primary btn-sm" href="#"><i class="ti ti-plus"></i></a>
+                </div>
+              </div>
+            </div> --}}
+  
+          </div>
+        </div>
+      </div>
+
+    
     {{-- <div class="pb-3">
       <div class="container">
         <div class="section-heading d-flex align-items-center justify-content-between dir-rtl">

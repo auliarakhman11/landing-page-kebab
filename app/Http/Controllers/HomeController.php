@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AccessToken;
 use App\Models\Kategori;
+use App\Models\PenjualanKasir;
 use App\Models\Post;
 use App\Models\Produk;
 use Artesaos\SEOTools\Facades\JsonLd;
@@ -39,6 +40,7 @@ class HomeController extends Controller
             'title' => 'Kebab Yasmin | Home',
             'kategori' => Kategori::select('id','kategori')->orderBy('possition','ASC')->get(),
             'produk' => Produk::select('produk.id','produk.kategori_id','produk.nm_produk','produk.foto','harga.harga')->leftJoin('harga','produk.id','=','harga.produk_id')->where('produk.status','ON')->where('produk.hapus',0)->where('harga.delivery_id',1)->where('harga.harga','!=',0)->orderBy('produk.possition','ASC')->groupBy('produk.id')->get(),
+            'terlaris' => PenjualanKasir::select('produk.id','produk.kategori_id','produk.nm_produk','produk.foto','harga.harga')->leftJoin('produk','penjualan_kasir.produk_id','=','produk.id')->leftJoin('harga','produk.id','=','harga.produk_id')->where('produk.status','ON')->where('produk.hapus',0)->where('harga.delivery_id',1)->where('harga.harga','!=',0)->where('penjualan_kasir.void','!=',2)->orderByRaw('SUM(penjualan_kasir.qty) DESC')->groupBy('produk.id')->take(6)->get(),
         ];
 
         return view('page.home',$data);

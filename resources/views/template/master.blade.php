@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet">
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('img') }}/kebab-yasmin.png">
+    <link rel="icon" href="{{ asset('img') }}/kebab-yasmin-putih.png">
     <!-- Apple Touch Icon -->
     <link rel="apple-touch-icon" href="{{ asset('img') }}/kebab-yasmin.png">
     <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('img') }}/kebab-yasmin.png">
@@ -76,6 +76,38 @@
     <script src="{{asset('suha')}}/js/no-internet.js"></script>
     <script src="{{asset('suha')}}/js/active.js"></script>
     {{-- <script src="{{asset('suha')}}/js/pwa.js"></script> --}}
+
+    <script>
+      $(document).ready(function () {
+
+        $(document).on('click', '#darkSwitch', function(event) {
+          let theme = localStorage.getItem("theme");
+          if (theme == 'light') {
+            let url = "{{ asset('img') }}/kebab-yasmin-putih.png";
+            $('#logo_web').attr('src',url);
+          }else{
+            let url = "{{ asset('img') }}/kebab-yasmin.png";
+            $('#logo_web').attr('src',url);
+          }
+        });
+        
+        function checkTheme() {
+          let theme = localStorage.getItem("theme");
+          if (theme == 'dark') {
+            let url = "{{ asset('img') }}/kebab-yasmin-putih.png";
+            $('#logo_web').attr('src',url);
+          }else{
+            let url = "{{ asset('img') }}/kebab-yasmin.png";
+            $('#logo_web').attr('src',url);
+          }
+        }
+
+        checkTheme();
+
+        
+
+      });
+    </script>
 
     @stack('scripts')
   </body>
