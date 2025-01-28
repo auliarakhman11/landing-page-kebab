@@ -13,26 +13,26 @@ class OutliteController extends Controller
 {
     public function index()
     {
-        SEOMeta::setTitle('Outlite');
-        SEOMeta::setDescription('The Best Snack In The Night');
-        SEOMeta::setCanonical(route('outlite'));
-        SEOMeta::addKeyword(['Kebab', 'Kebab Yasmin', 'The Best Snack In The Night', 'Jajanan', 'Makanan', 'Makana dan Minuman', 'Banjarmasin', 'Kalsel', 'Kalimantan Selatan', 'Kekinian', 'Maknan Kekinian', 'Jajanan Malam', 'Makanan Malam']);
+        SEOMeta::setTitle('Outlet');
+        SEOMeta::setDescription('Surganya Ngebab!');
+        SEOMeta::setCanonical(route('outlet'));
+        SEOMeta::addKeyword(['Kebab', 'Kebab Yasmin', 'Surganya Ngebab!', 'Jajanan', 'Makanan', 'Makana dan Minuman', 'Banjarmasin', 'Kalsel', 'Kalimantan Selatan', 'Kekinian', 'Maknan Kekinian', 'Jajanan Malam', 'Makanan Malam']);
 
-        OpenGraph::setDescription('The Best Snack In The Night');
-        OpenGraph::setTitle('Outlite');
-        OpenGraph::setUrl(route('outlite'));
-        OpenGraph::addImage(asset('auth').'/images/kebabyasmin-removebg.png', ['height' => 300, 'width' => 300]);
+        OpenGraph::setDescription('Surganya Ngebab!');
+        OpenGraph::setTitle('Outlet');
+        OpenGraph::setUrl(route('outlet'));
+        OpenGraph::addImage(asset('img').'/kebab-yasmin.png', ['height' => 300, 'width' => 300]);
 
-        TwitterCard::setTitle('Outlite');
-        TwitterCard::setDescription('The Best Snack In The Night');
-        TwitterCard::setUrl(route('outlite'));
+        TwitterCard::setTitle('Outlet');
+        TwitterCard::setDescription('Surganya Ngebab!');
+        TwitterCard::setUrl(route('outlet'));
 
-        JsonLd::setTitle('Outlite');
-        JsonLd::setDescription('The Best Snack In The Night');
-        JsonLd::addImage(asset('auth').'/images/kebabyasmin-removebg.png');
+        JsonLd::setTitle('Outlet');
+        JsonLd::setDescription('Surganya Ngebab!');
+        JsonLd::addImage(asset('img').'/kebab-yasmin.png');
         $data = [
-            // 'title' => 'Kebab Yasmin | Outlite',
-            'outlite' => Outlite::all()
+            'title' => 'Kebab Yasmin | Outlet',
+            'outlet' => Outlite::where('off',0)->where('kota_id','!=',4)->orderBy('possition','ASC')->get()
         ];
         return view('page.outlite',$data);
     }
