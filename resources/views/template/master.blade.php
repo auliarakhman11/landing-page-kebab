@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, shrink-to-fit=no">
-    <meta name="description" content="Suha - Multipurpose Ecommerce Mobile HTML Template">
+    <meta name="description" content="Kebab Yasmin - Surganya Ngebab!">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#625AFA">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -31,7 +31,7 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{{asset('suha')}}/style.css">
     <!-- Web App Manifest -->
-    <link rel="manifest" href="{{asset('suha')}}/manifest.json">
+    {{-- <link rel="manifest" href="{{asset('suha')}}/manifest.json"> --}}
   </head>
   <body>
     <!-- Preloader-->
@@ -85,8 +85,11 @@
           if (theme == 'light') {
             let url = "{{ asset('img') }}/kebab-yasmin-putih.png";
             $('#logo_web').attr('src',url);
-          }else{
+          }else if (theme == 'dark') {
             let url = "{{ asset('img') }}/kebab-yasmin.png";
+            $('#logo_web').attr('src',url);
+          } else {
+            let url = "{{ asset('img') }}/kebab-yasmin-putih.png";
             $('#logo_web').attr('src',url);
           }
         });
