@@ -29,30 +29,32 @@
           <!-- Hero Slides-->
           <div class="hero-slides owl-carousel">
             <!-- Single Hero Slide-->
-            <div class="single-hero-slide" style="background-image: url('{{asset('suha')}}/img/bg-img/1.jpg')">
+            <div class="single-hero-slide" style="background-image: url('{{asset('img')}}/bg1.png')">
               <div class="slide-content h-100 d-flex align-items-center">
                 <div class="slide-text">
-                  <h4 class="text-white mb-0" data-animation="fadeInUp" data-delay="100ms" data-duration="1000ms">Amazon Echo</h4>
-                  <p class="text-white" data-animation="fadeInUp" data-delay="400ms" data-duration="1000ms">3rd Generation, Charcoal</p><a class="btn btn-primary" href="#" data-animation="fadeInUp" data-delay="800ms" data-duration="1000ms">Buy Now</a>
+                  <h4 class="text-white mb-0" data-animation="fadeInUp" data-delay="100ms" data-duration="1000ms">Kebab Yasmin</h4>
+                  <p class="text-white" data-animation="fadeInUp" data-delay="400ms" data-duration="1000ms">Surganya Ngebab!</p>
+                  {{-- <a class="btn btn-primary" href="#" data-animation="fadeInUp" data-delay="800ms" data-duration="1000ms">Buy Now</a> --}}
                 </div>
               </div>
             </div>
             <!-- Single Hero Slide-->
-            <div class="single-hero-slide" style="background-image: url('{{asset('suha')}}/img/bg-img/2.jpg')">
+            <div class="single-hero-slide" style="background-image: url('{{asset('img')}}/bg2.png')">
               <div class="slide-content h-100 d-flex align-items-center">
                 <div class="slide-text">
-                  <h4 class="text-white mb-0" data-animation="fadeInUp" data-delay="100ms" data-duration="1000ms">Light Candle</h4>
-                  <p class="text-white" data-animation="fadeInUp" data-delay="400ms" data-duration="1000ms">Now only $22</p><a class="btn btn-primary" href="#" data-animation="fadeInUp" data-delay="500ms" data-duration="1000ms">Buy Now</a>
+                  <h5 class="text-white mb-0" data-animation="fadeInUp" data-delay="100ms" data-duration="1000ms">Action Crew</h5>
+                  <p class="text-white" data-animation="fadeInUp" data-delay="400ms" data-duration="1000ms">Mengalahkan Pesanan Kalian Dengan Cepat</p>
+                  {{-- <a class="btn btn-primary" href="#" data-animation="fadeInUp" data-delay="500ms" data-duration="1000ms">Buy Now</a> --}}
                 </div>
               </div>
             </div>
             <!-- Single Hero Slide-->
-            <div class="single-hero-slide" style="background-image: url('{{asset('suha')}}/img/bg-img/3.jpg')">
+            <div class="single-hero-slide" style="background-image: url('{{asset('img')}}/kebab-final.gif')">
               <div class="slide-content h-100 d-flex align-items-center">
-                <div class="slide-text">
+                {{-- <div class="slide-text">
                   <h4 class="text-white mb-0" data-animation="fadeInUp" data-delay="100ms" data-duration="1000ms">Fancy Chair</h4>
                   <p class="text-white" data-animation="fadeInUp" data-delay="400ms" data-duration="1000ms">3 years warranty</p><a class="btn btn-primary" href="#" data-animation="fadeInUp" data-delay="800ms" data-duration="1000ms">Buy Now</a>
-                </div>
+                </div> --}}
               </div>
             </div>
           </div>
@@ -203,10 +205,10 @@
                 <div class="card-body">
                   <!-- Badge--><span class="badge badge-warning custom-badge"><i class="ti ti-star-filled"></i></span>
                   <div class="product-thumbnail-side">
-                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img src="https://admin.kebabyasmin.id/{{ $t->foto }}" alt=""></a>
+                    <!-- Thumbnail --><a class="product-thumbnail d-block" href="javascript:void(0)"><img src="https://admin.kebabyasmin.id/{{ $t->foto }}" alt=""></a>
                   </div>
                   <div class="product-description">
-                    <!-- Product Title --><a class="product-title d-block" href="single-product.html">{{ $t->nm_produk }}</a>
+                    <!-- Product Title --><a class="product-title d-block" href="javascript:void(0)">{{ $t->nm_produk }}</a>
                     <!-- Price -->
                     {{-- <p class="sale-price">$39<span>$89</span></p> --}}
                     <p class="sale-price">{{ number_format($t->harga,0) }}</p>
@@ -494,8 +496,8 @@
                     <div class="card-body">
                       {{-- <!-- Badge--><span class="badge rounded-pill badge-success">New</span>
                       <!-- Wishlist Button--><a class="wishlist-btn" href="#"><i class="ti ti-heart"></i></a> --}}
-                      <!-- Thumbnail --><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" loading="lazy" src="https://admin.kebabyasmin.id/{{ $p->foto }}" alt=""></a>
-                      <!-- Product Title --><a class="product-title demoname" href="single-product.html" style="font-size: 12px;">{{ $p->nm_produk }}</a>
+                      <!-- Thumbnail --><a class="product-thumbnail d-block" href="javascript:void(0)"><img class="mb-2" loading="lazy" src="https://admin.kebabyasmin.id/{{ $p->foto }}" alt=""></a>
+                      <!-- Product Title --><a class="product-title demoname" href="javascript:void(0)" style="font-size: 12px;">{{ $p->nm_produk }}</a>
                       <!-- Product Price -->
                       <p class="sale-price" style="font-size: 12px;">Rp.{{ number_format($p->harga,0) }}</span></p>
                       {{-- <p class="sale-price">$74<span>$99</span></p> --}}
